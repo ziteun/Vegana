@@ -789,7 +789,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CQF6UG7K2D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = vegana/Info.plist;
+				INFOPLIST_FILE = vegana/Resource/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vegana에 사진을 올리기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -820,7 +820,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CQF6UG7K2D;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = vegana/Info.plist;
+				INFOPLIST_FILE = vegana/Resource/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vegana에 사진을 올리기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
