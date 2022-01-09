@@ -21,4 +21,5 @@ target 'vegana' do
   # UI
   pod 'IQKeyboardManagerSwift', '~> 6.5.9'
   pod 'Kingfisher', '~> 7.1.2'
+  pod 'VACalendar', '~> 1.3'
 end

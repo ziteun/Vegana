@@ -49,7 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="52" height="70"/>
+        <image name="logo" width="52" height="69"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

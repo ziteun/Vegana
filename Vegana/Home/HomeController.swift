@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class HomeController: UICollectionViewController, HomePostCellDelegate {
-    var user:User?
+    var user: User?
     let cellId = "cellId"
     var posts = [Post]()
     let refreshControl = UIRefreshControl()
@@ -27,19 +27,10 @@ class HomeController: UICollectionViewController, HomePostCellDelegate {
         super.viewDidLoad()
         collectionView?.prefetchDataSource = self
         collectionView?.backgroundColor = .systemBackground
-        collectionView?.register(HomePostCell.self,
-                                 forCellWithReuseIdentifier: cellId)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(handleUpdateFeed),
-                                               name: SharePhotoController.updateFeedNotificationName,
-                                               object: nil)
-//        refreshControl.addTarget(self,
-//                                 action: #selector(refresh),
-//                                 for: .valueChanged)
+        collectionView?.register(HomePostCell.self, forCellWithReuseIdentifier: cellId)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
         
-        refreshControl.addTarget(self,
-                                 action: #selector(refreshTop),
-                                 for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshTop), for: .valueChanged)
         
         collectionView?.refreshControl = refreshControl
         setupDMbarbuttomItem()
@@ -57,11 +48,9 @@ class HomeController: UICollectionViewController, HomePostCellDelegate {
     }
     
     private func setupDMbarbuttomItem () {
-        let button = UIBarButtonItem(image: UIImage(systemName: "paperplane")?.withTintColor(.label, renderingMode: .alwaysOriginal),
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(showDMController))
-        self.navigationItem.rightBarButtonItem = button
+        let directMessageButton = UIBarButtonItem(image: UIImage(systemName: "paperplane")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(showDMController))
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(showSearchController))
+        self.navigationItem.rightBarButtonItems = [directMessageButton, searchButton]
     }
     
     @objc
@@ -72,6 +61,14 @@ class HomeController: UICollectionViewController, HomePostCellDelegate {
         DMTVC.navigationItem.title = "Direct"
         DMTVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(DMTVC, animated: true)
+    }
+    
+    @objc
+    private func showSearchController() {
+        let searchController = UserSearchController(collectionViewLayout: UICollectionViewFlowLayout())
+        searchController.navigationItem.title = "Search"
+        searchController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(searchController, animated: true)
     }
     
     
