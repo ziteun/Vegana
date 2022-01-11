@@ -833,6 +833,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegana/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VEGANA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Vegana 앱에서 사진을 찍기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vegana에 사진을 올리기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -865,6 +866,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vegana/Resource/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = VEGANA;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Vegana 앱에서 사진을 찍기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Vegana에 사진을 올리기 위해 권한을 허용 해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

@@ -58,7 +58,9 @@ class ChallengeViewController: UIViewController {
     }
     
     func setupUIs() {
-        view.addSubview(scrollView)
+        self.view.backgroundColor = .systemBackground
+        
+        self.view.addSubview(scrollView)
         scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0.0).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0.0).isActive = true
         scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0.0).isActive = true

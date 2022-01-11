@@ -140,7 +140,7 @@ class DiaryViewController: UIViewController {
     }
     
     func setupUIs() {
-        view.backgroundColor = .white
+        self.view.backgroundColor = .systemBackground
     }
 }
 
@@ -158,11 +158,25 @@ extension DiaryViewController: VAMonthViewAppearanceDelegate {
     }
     
     func verticalMonthTitleColor() -> UIColor {
-        return .darkGray
+        switch self.traitCollection.userInterfaceStyle {
+        case .light, .unspecified:
+            return .lightGray
+        case .dark:
+            return .gray
+        @unknown default:
+            fatalError()
+        }
     }
     
     func verticalCurrentMonthTitleColor() -> UIColor {
-        return .black
+        switch self.traitCollection.userInterfaceStyle {
+        case .light, .unspecified:
+            return .black
+        case .dark:
+            return .white
+        @unknown default:
+            fatalError()
+        }
     }
     
     func verticalMonthDateFormater() -> DateFormatter {
@@ -182,7 +196,14 @@ extension DiaryViewController: VADayViewAppearanceDelegate {
         case .unavailable:
             return .lightGray
         default:
-            return .black
+            switch self.traitCollection.userInterfaceStyle {
+            case .light, .unspecified:
+                return .black
+            case .dark:
+                return .white
+            @unknown default:
+                fatalError()
+            }
         }
     }
     

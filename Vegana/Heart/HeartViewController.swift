@@ -12,5 +12,7 @@ class HeartViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Heart"
+        
+        self.view.backgroundColor = .systemBackground
     }
 }
