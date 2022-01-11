@@ -16,6 +16,8 @@ class AddMealViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,14 @@ class AddMealViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         self.previewLayer = previewLayer
         self.view.layer.addSublayer(self.previewLayer)
         self.previewLayer.frame = self.view.layer.frame
+        //
+        let premiumViewLayer=CALayer()
+        premiumViewLayer.frame = CGRect(origin: CGPoint.zero, size: self.previewLayer.frame.size)
+//        premiumViewLayer.backgroundColor = UIColor(white: 1.0, alpha: 0.5).cgColor
+        premiumViewLayer.contents=UIImage(named: "logo")?.cgImage
+        premiumViewLayer.contentsGravity = CALayerContentsGravity.center
+        self.previewLayer.addSublayer(premiumViewLayer)
+        //
         captureSession.startRunning()
         
         let dataOutput = AVCaptureVideoDataOutput()
@@ -57,7 +67,7 @@ class AddMealViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         captureSession.commitConfiguration()
         
         
-        let queue = DispatchQueue(label: "com.brianadvent.captureQueue")
+        let queue = DispatchQueue(label: "org.vegana.vegana")
         dataOutput.setSampleBufferDelegate(self, queue: queue)
     }
     
