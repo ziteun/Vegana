@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52980E6027885CB20058FEE5 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E5F27885CB20058FEE5 /* MealViewController.swift */; };
+		52980E6027885CB20058FEE5 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E5F27885CB20058FEE5 /* AddMealViewController.swift */; };
 		52980E6627886A9E0058FEE5 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E6527886A9E0058FEE5 /* DiaryViewController.swift */; };
 		52980E68278870A00058FEE5 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E67278870A00058FEE5 /* ChallengeViewController.swift */; };
 		52980E6E27887D960058FEE5 /* DraggablePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E6B27887D950058FEE5 /* DraggablePresentationController.swift */; };
 		52980E6F27887D960058FEE5 /* TouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E6C27887D950058FEE5 /* TouchForwardingView.swift */; };
 		52980E7027887D960058FEE5 /* DraggableTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E6D27887D950058FEE5 /* DraggableTransitionAnimator.swift */; };
-		52980E7227887E150058FEE5 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E7127887E150058FEE5 /* AddMealViewController.swift */; };
+		52980E7227887E150058FEE5 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52980E7127887E150058FEE5 /* MealViewController.swift */; };
 		52C226E727832E82001D685B /* CritterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C226D227832E81001D685B /* CritterView.swift */; };
 		52C226E827832E82001D685B /* CritterAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C226D327832E81001D685B /* CritterAssets.swift */; };
 		52C226E927832E82001D685B /* CritterAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C226D427832E81001D685B /* CritterAnimatable.swift */; };
@@ -89,14 +89,14 @@
 
 /* Begin PBXFileReference section */
 		12F24FC874C4632A78DC28AD /* Pods-vegana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vegana.debug.xcconfig"; path = "Target Support Files/Pods-vegana/Pods-vegana.debug.xcconfig"; sourceTree = "<group>"; };
-		52980E5F27885CB20058FEE5 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		52980E5F27885CB20058FEE5 /* AddMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		52980E6527886A9E0058FEE5 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		52980E67278870A00058FEE5 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
 		52980E6A27887D950058FEE5 /* DraggableBottomSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableBottomSheet.h; sourceTree = "<group>"; };
 		52980E6B27887D950058FEE5 /* DraggablePresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggablePresentationController.swift; sourceTree = "<group>"; };
 		52980E6C27887D950058FEE5 /* TouchForwardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchForwardingView.swift; sourceTree = "<group>"; };
 		52980E6D27887D950058FEE5 /* DraggableTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableTransitionAnimator.swift; sourceTree = "<group>"; };
-		52980E7127887E150058FEE5 /* AddMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
+		52980E7127887E150058FEE5 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		52C226D227832E81001D685B /* CritterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CritterView.swift; sourceTree = "<group>"; };
 		52C226D327832E81001D685B /* CritterAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CritterAssets.swift; sourceTree = "<group>"; };
 		52C226D427832E81001D685B /* CritterAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CritterAnimatable.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 		52980E6127885CB80058FEE5 /* Meal */ = {
 			isa = PBXGroup;
 			children = (
-				52980E5F27885CB20058FEE5 /* MealViewController.swift */,
+				52980E5F27885CB20058FEE5 /* AddMealViewController.swift */,
 			);
 			path = Meal;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 				52980E67278870A00058FEE5 /* ChallengeViewController.swift */,
 				52980E6527886A9E0058FEE5 /* DiaryViewController.swift */,
 				52980E6127885CB80058FEE5 /* Meal */,
-				52980E7127887E150058FEE5 /* AddMealViewController.swift */,
+				52980E7127887E150058FEE5 /* MealViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -671,10 +671,10 @@
 				93D501AF277568F7005595C3 /* MainTabBarController.swift in Sources */,
 				93D501EB2775698D005595C3 /* LoginController.swift in Sources */,
 				52C226F727832E82001D685B /* CATransform3D+Helper.swift in Sources */,
-				52980E7227887E150058FEE5 /* AddMealViewController.swift in Sources */,
+				52980E7227887E150058FEE5 /* MealViewController.swift in Sources */,
 				93D501F62775698D005595C3 /* DMtableViewController.swift in Sources */,
 				52C226F127832E82001D685B /* LeftEarMask.swift in Sources */,
-				52980E6027885CB20058FEE5 /* MealViewController.swift in Sources */,
+				52980E6027885CB20058FEE5 /* AddMealViewController.swift in Sources */,
 				93D502162775698D005595C3 /* UserSearchController.swift in Sources */,
 				52C226EE27832E82001D685B /* RightEarMask.swift in Sources */,
 				52C226E727832E82001D685B /* CritterView.swift in Sources */,

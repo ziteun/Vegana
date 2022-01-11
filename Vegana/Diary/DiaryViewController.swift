@@ -9,15 +9,28 @@
 import UIKit
 import VACalendar
 
+protocol AddMealDelegate: AnyObject {
+    func addMeal(_ data: String)
+}
+
 class DiaryViewController: UIViewController {
     // Draggable Animator
     private var animator: DraggableTransitionDelegate?
+    let mealViewController = MealViewController()
     
     // Calendar
     private var weekDaysView: VAWeekDaysView! {
         didSet {
-            let appereance = VAWeekDaysViewAppearance(symbolsType: .short, calendar: defaultCalendar)
+            let appereance = VAWeekDaysViewAppearance(
+                symbolsType: .short,
+                weekDayTextFont: UIFont.systemFont(ofSize: 13),
+                leftInset: 0,
+                rightInset: 0,
+                calendar: defaultCalendar
+            )
             weekDaysView.appearance = appereance
+            weekDaysView.layer.borderWidth = 0.5
+            weekDaysView.layer.borderColor = UIColor.lightGray.cgColor
         }
     }
     let defaultCalendar: Calendar = {
@@ -32,9 +45,21 @@ class DiaryViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigationItems()
-        setupBottomSheet()
+        
         setupCalendar()
         setupUIs()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupBottomSheet()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.mealViewController.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,16 +77,28 @@ class DiaryViewController: UIViewController {
     }
     
     func setupNavigationItems() {
+        let statisticsButton = UIBarButtonItem(image: UIImage(systemName: "paperplane")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(self.showstatisticsController))
+        self.navigationItem.rightBarButtonItems = [statisticsButton]
+    }
+    
+    @objc
+    private func showstatisticsController() {
+//        guard let user = self.user else { return }
+//        let DMTVC = DMtableViewController()
+//        DMTVC.user = user
+//        DMTVC.navigationItem.title = "Direct"
+//        DMTVC.hidesBottomBarWhenPushed = true
+//        navigationController?.pushViewController(DMTVC, animated: true)
     }
     
     func setupBottomSheet() {
         // Bottom Sheet
-        let addMealViewController = AddMealViewController()
-        animator = DraggableTransitionDelegate(viewControllerToPresent: addMealViewController, presentingViewController: self)
-        addMealViewController.transitioningDelegate = animator
-        addMealViewController.modalPresentationStyle = .custom
-        present(addMealViewController, animated: true) {
-            print("completed Presentation")
+        animator = DraggableTransitionDelegate(viewControllerToPresent: mealViewController, presentingViewController: self)
+        mealViewController.transitioningDelegate = animator
+        mealViewController.modalPresentationStyle = .custom
+        mealViewController.delegate = self
+        self.present(mealViewController, animated: true) {
+            //print("completed Presentation")
         }
     }
     
@@ -73,7 +110,7 @@ class DiaryViewController: UIViewController {
         weekDaysView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0.0).isActive = true
         weekDaysView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0).isActive = true
         weekDaysView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0).isActive = true
-        weekDaysView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        weekDaysView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyy"
@@ -87,7 +124,7 @@ class DiaryViewController: UIViewController {
             calendar: defaultCalendar
         )
         calendarView = VACalendarView(frame: .zero, calendar: calendar)
-        calendarView.showDaysOut = false
+        calendarView.showDaysOut = true
         calendarView.selectionStyle = .single
         calendarView.dayViewAppearanceDelegate = self
         calendarView.monthViewAppearanceDelegate = self
@@ -121,16 +158,16 @@ extension DiaryViewController: VAMonthViewAppearanceDelegate {
     }
     
     func verticalMonthTitleColor() -> UIColor {
-        return .black
+        return .darkGray
     }
     
     func verticalCurrentMonthTitleColor() -> UIColor {
-        return .red
+        return .black
     }
     
     func verticalMonthDateFormater() -> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
+        dateFormatter.dateFormat = "yyyy LLLL"
         return dateFormatter
     }
 }
@@ -175,5 +212,12 @@ extension DiaryViewController: VADayViewAppearanceDelegate {
 extension DiaryViewController: VACalendarViewDelegate {
     func selectedDate(_ date: Date) {
         print(date)
+    }
+}
+
+extension DiaryViewController: AddMealDelegate {
+    func addMeal(_ data: String) {
+        let addMealViewController = AddMealViewController()
+        self.navigationController?.pushViewController(addMealViewController, animated: true)
     }
 }

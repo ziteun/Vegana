@@ -68,8 +68,14 @@ extension Date {
             return "\(secondsAgo / week) weeks ago"
         }
     }
+    
+    func dateWithoutTime() -> Date {
+        let timeZone = TimeZone.current
+        let timeIntervalWithTimeZone = self.timeIntervalSinceReferenceDate + Double(timeZone.secondsFromGMT())
+        let timeInterval = floor(timeIntervalWithTimeZone / 86400) * 86400
+        return Date(timeIntervalSinceReferenceDate: timeInterval)
+    }
 }
-
 
 extension String {
     func getEdtimatedHeight(width: CGFloat) -> CGFloat {
@@ -77,5 +83,24 @@ extension String {
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
         let estimatedSize = NSString(string: self).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return estimatedSize.height
+    }
+}
+
+extension UIViewController {
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist)
+     */
+    var navigationBarHeight: CGFloat {
+        return (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0) + (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+}
+
+extension UIScrollView {
+    func resizeScrollViewContentSize() {
+        var contentRect = CGRect.zero
+        for view in self.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        self.contentSize = contentRect.size
     }
 }
