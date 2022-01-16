@@ -14,6 +14,8 @@ protocol AddMealDelegate: AnyObject {
 }
 
 class DiaryViewController: UIViewController {
+    weak var delegate: MealViewDismissDelegate?
+    
     // Draggable Animator
     private var animator: DraggableTransitionDelegate?
     let mealViewController = MealViewController()
@@ -21,8 +23,16 @@ class DiaryViewController: UIViewController {
     // Calendar
     private var weekDaysView: VAWeekDaysView! {
         didSet {
+            var weekDayTitleColor = UIColor()
+            if self.traitCollection.userInterfaceStyle == .light || self.traitCollection.userInterfaceStyle == .unspecified {
+                weekDayTitleColor = .black
+            } else {
+                weekDayTitleColor = .white
+            }
+            
             let appereance = VAWeekDaysViewAppearance(
                 symbolsType: .short,
+                weekDayTextColor: weekDayTitleColor,
                 weekDayTextFont: UIFont.systemFont(ofSize: 13),
                 leftInset: 0,
                 rightInset: 0,
@@ -59,7 +69,14 @@ class DiaryViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.mealViewController.dismiss(animated: true, completion: nil)
+//        if isBeingPresented {
+//            self.mealViewController.dismiss(animated: true, completion: nil)
+//        }
+//        if self.mealViewController.isBeingPresented {
+//            self.mealViewController.dismiss(animated: true, completion: nil)
+//        }
+        //self.mealViewController.dismiss(animated: true, completion: nil)
+        self.delegate?.dismissMealView(viewController: self.mealViewController)
     }
     
     override func viewDidLayoutSubviews() {

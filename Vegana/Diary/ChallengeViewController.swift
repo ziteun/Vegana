@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+protocol MealViewDismissDelegate: AnyObject {
+    func dismissMealView(viewController: UIViewController)
+}
+
 class ChallengeViewController: UIViewController {
     var user: User?
     
@@ -83,6 +87,7 @@ class ChallengeViewController: UIViewController {
     @objc
     private func showDiaryController() {
         let diaryController = DiaryViewController()
+        diaryController.delegate = self
         diaryController.navigationItem.title = self.user?.username ?? "" + "의 채식일기"
         diaryController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(diaryController, animated: true)
@@ -93,5 +98,11 @@ class ChallengeViewController: UIViewController {
         Database.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
         }
+    }
+}
+
+extension ChallengeViewController: MealViewDismissDelegate {
+    func dismissMealView(viewController: UIViewController) {
+        viewController.dismiss(animated: true, completion: nil)
     }
 }
